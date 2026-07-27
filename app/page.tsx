@@ -36,9 +36,9 @@ export default function Home() {
               </div>
               <div className="archival-frame archival-frame--small">
                 <img
-                  className="museum-photo museum-photo--entrance"
-                  src="/images/iosco-museum-main.svg"
-                  alt="Entrance to the Iosco County Historical Museum"
+                  className="museum-photo museum-photo--side"
+                  src="/images/iosco-museum-side-view.svg"
+                  alt="Side view of the Iosco County Historical Museum"
                 />
               </div>
             </div>
