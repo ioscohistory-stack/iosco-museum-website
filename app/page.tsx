@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Footer, Header } from "./site-components";
-import { museum } from "./site-data";
 
 export default function Home() {
   return (
@@ -204,9 +203,9 @@ export default function Home() {
                 <Link className="button button--outline" href="/sponsors">
                   Meet our sponsors
                 </Link>
-                <a className="button button--outline" href={museum.donate}>
+                <Link className="button button--outline" href="/museum-check-out">
                   Make a donation
-                </a>
+                </Link>
               </div>
             </div>
           </div>
