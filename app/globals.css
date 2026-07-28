@@ -851,6 +851,9 @@ p {
   background: var(--paper);
   margin-bottom: 24px;
   overflow: hidden;
+  transition:
+    box-shadow 400ms ease,
+    transform 400ms ease;
 }
 
 .story-card__image img,
@@ -865,6 +868,22 @@ p {
 .story-card:hover img,
 .collection-card:hover > img {
   transform: scale(1.035);
+}
+
+.card-grid--history .story-card:hover .story-card__image {
+  box-shadow: 0 14px 28px rgba(16, 46, 37, 0.18);
+  transform: translateY(-5px) rotate(-0.35deg);
+}
+
+.card-grid--history .story-card:hover .story-card__image img {
+  transform: scale(1.055);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-grid--history .story-card .story-card__image,
+  .card-grid--history .story-card .story-card__image img {
+    transition: none;
+  }
 }
 
 .story-card h2,
