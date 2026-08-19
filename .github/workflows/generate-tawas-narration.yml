@@ -1,9 +1,9 @@
 name: Generate Tawas Theatre Narration
 
 on:
-  push:
+  pull_request:
     branches:
-      - tmp-tawas-narration-20260819
+      - main
 
 permissions:
   contents: read
