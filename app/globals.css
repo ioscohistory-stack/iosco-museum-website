@@ -1922,6 +1922,19 @@ p {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.application-fields { display: contents; border: 0; padding: 0; margin: 0; }
+.application-honey { display: none; }
+.application-error, .application-status { padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px; }
+.application-error { color: #8d2823; background: #fff8f7; }
+.application-error a { text-decoration: underline; }
+.application-status { color: #173d33; background: #f3f8f5; }
+.membership-application { margin: 3rem 0; scroll-margin-top: 2rem; }
+.membership-application > p { max-width: 65ch; }
+.membership-application .volunteer-form { margin-top: 1.5rem; }
+.membership-choice { background: none; border: 0; padding: 0; font: inherit; text-align: left; cursor: pointer; }
+.payment-help { color: #333; font-size: .875rem; margin: .75rem 0 0; line-height: 1.5; }
+.application-fields:disabled button { opacity: .65; cursor: wait; }
+
 .form-field {
   display: flex;
   flex-direction: column;

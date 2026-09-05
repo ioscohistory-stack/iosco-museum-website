@@ -17,7 +17,7 @@ import {
   participationLinks,
   siteDirectoryGroups,
 } from "../site-data";
-import { PayPalMembershipButton } from "../paypal-membership";
+import { MembershipSignup } from "../membership-signup";
 import { PayPalMuseumCheckoutButton } from "../paypal-museum-checkout";
 import { PayPalPreservationButton } from "../paypal-preservation";
 import { VolunteerForm } from "../volunteer-form";
@@ -932,46 +932,7 @@ function MembershipPage() {
           </p>
         </div>
 
-        <div className="membership-levels">
-          {membershipLevels.map((level) => (
-            <article className="membership-card" key={level.name}>
-              <p className="eyebrow">{level.subtitle}</p>
-              <h2>{level.name}</h2>
-              <p className="membership-price">{level.price}</p>
-              <ul>
-                {level.benefits.map((benefit) => (
-                  <li key={benefit}>{benefit}</li>
-                ))}
-              </ul>
-              <a className="text-link" href="#join-online">
-                Choose this membership <b>↓</b>
-              </a>
-            </article>
-          ))}
-        </div>
-
-        <section className="join-online" id="join-online">
-          <div className="join-online__copy">
-            <p className="eyebrow eyebrow--light">Join in minutes</p>
-            <h2>Sign up and pay online.</h2>
-            <p>
-              Choose your membership level in the secure payment form. You can
-              pay with PayPal, Venmo, or a credit or debit card.
-            </p>
-            <p className="secure-note">Secure payment processing by PayPal.</p>
-          </div>
-          <div className="join-online__payment">
-            <PayPalMembershipButton />
-            <a
-              className="paypal-fallback-link"
-              href="https://www.paypal.com/ncp/payment/YQSQJPLMMF6BL"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Payment form not showing? Open secure membership checkout ↗
-            </a>
-          </div>
-        </section>
+        <MembershipSignup levels={membershipLevels} />
 
         <div className="membership-other-ways">
           <div>
