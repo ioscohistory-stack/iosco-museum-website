@@ -1930,6 +1930,8 @@ p {
 .application-status { color: #173d33; background: #f3f8f5; }
 .membership-application { margin: 3rem 0; scroll-margin-top: 2rem; }
 .membership-application > p { max-width: 65ch; }
+.membership-application > h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.2; margin: .5rem 0 1rem; }
+.membership-application .form-field label { font-size: .875rem; }
 .membership-application .volunteer-form { margin-top: 1.5rem; }
 .membership-choice { background: none; border: 0; padding: 0; font: inherit; text-align: left; cursor: pointer; }
 .payment-help { color: #333; font-size: .875rem; margin: .75rem 0 0; line-height: 1.5; }

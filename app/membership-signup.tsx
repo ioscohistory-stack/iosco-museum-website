@@ -36,7 +36,7 @@ export function MembershipSignup({ levels }: { levels: Level[] }) {
         <div className="form-field"><label htmlFor="member-email">Email *</label><input id="member-email" name="email" type="email" autoComplete="email" required maxLength={254} /></div>
         <div className="form-field"><label htmlFor="member-phone">Phone number</label><input id="member-phone" name="phone" type="tel" autoComplete="tel" maxLength={40} /></div>
         <div className="form-field"><label htmlFor="member-level">Membership level *</label>
-          <select id="member-level" name="Membership level" value={selected} onChange={event=>setSelected(Number(event.target.value))}>
+          <select id="member-level" value={selected} onChange={event=>setSelected(Number(event.target.value))}>
             {levels.map((item,index)=><option value={index} key={item.name}>{item.name} — {item.price}</option>)}
           </select>
           <input type="hidden" name="Membership type" value={level.name} />

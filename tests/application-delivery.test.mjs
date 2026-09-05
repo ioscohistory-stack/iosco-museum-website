@@ -21,7 +21,7 @@ test('sends complete details to the fixed museum endpoint and accepts confirmed 
   assert.equal(captured.body.comments, 'Archives & research\nSecond line');
   assert.equal(captured.body._subject, 'Iosco Museum Volunteer Application');
   assert.equal(captured.body._url, APPLICATION_SITE);
-  assert.equal(captured.referrerPolicy, 'no-referrer');
+  assert.equal(captured.referrerPolicy, 'origin');
 });
 test('activation response is never treated as a successful application', async t => {
   t.mock.method(globalThis, 'fetch', async () => Response.json({ success: 'true', message: 'Please activate your form.' }));

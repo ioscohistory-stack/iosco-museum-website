@@ -22,7 +22,8 @@ export function ApplicationForm({ children, subject, button, success, className 
       await sendApplication(new FormData(event.currentTarget), subject);
       setStatus("sent");
       onAccepted?.();
-    } catch {
+    } catch (error) {
+      console.warn("Application submission did not complete", error instanceof Error ? error.name : "Unknown error");
       setStatus("error");
     } finally {
       busy.current = false;
