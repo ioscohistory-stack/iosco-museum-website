@@ -11,16 +11,17 @@ export function MembershipSignup({ levels }: { levels: Level[] }) {
   const amount = level.price.startsWith("$") ? level.price.slice(1) : gift;
   function choose(index: number) {
     setSelected(index);
-    document.getElementById("join-online")?.scrollIntoView({ block: "start" });
+    document.getElementById(levels[index].price.startsWith("$") ? "membership-payment" : "join-online")?.scrollIntoView({ block: "start" });
   }
   return <>
+    <p><strong>Click a membership level below to pay online.</strong> Your membership type and payment amount will fill in automatically. For a Benefactor membership, enter the amount you wish to contribute.</p>
     <div className="membership-levels">
       {levels.map((item, index) => <article className="membership-card" key={item.name}>
         <p className="eyebrow">{item.subtitle}</p><h2>{item.name}</h2>
         <p className="membership-price">{item.price}</p>
         <ul>{item.benefits.map(benefit => <li key={benefit}>{benefit}</li>)}</ul>
         <button type="button" className="text-link membership-choice" onClick={() => choose(index)}>
-          Choose {item.name} <b>↓</b>
+          Choose {item.name} and pay online <b>↓</b>
         </button>
       </article>)}
     </div>
