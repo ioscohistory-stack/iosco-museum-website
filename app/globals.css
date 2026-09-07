@@ -1488,16 +1488,44 @@ p {
   text-underline-offset: 3px;
 }
 
+.membership-mail-option {
+  background: var(--paper);
+  padding: 18px 22px;
+  margin-bottom: 24px;
+}
+
+.membership-mail-option a {
+  color: var(--forest);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+#membership-by-mail {
+  scroll-margin-top: 24px;
+}
+
 .membership-other-ways {
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 18px;
 }
 
 .membership-other-ways > div {
   border: 1px solid var(--line);
   padding: 32px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.membership-other-ways .button-row {
+  margin: 20px 0;
+}
+
+.membership-other-ways .button {
+  white-space: normal;
+  text-align: center;
 }
 
 .membership-other-ways h2 {

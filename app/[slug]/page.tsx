@@ -933,30 +933,40 @@ function MembershipPage() {
           </p>
         </div>
 
+        <p className="membership-mail-option">Prefer to join by mail? <a href="#membership-by-mail">Get the printable membership form ↓</a></p>
+
         <MembershipSignup levels={membershipLevels} />
 
-        <div className="membership-other-ways">
+        <div className="membership-other-ways" id="membership-by-mail">
           <div>
             <p className="eyebrow">Join by mail</p>
-            <h2>Send your membership</h2>
+            <h2>Print your membership form</h2>
+            <div className="button-row">
+              <a className="button button--brick" href="/documents/membership-form-2026.pdf" target="_blank" rel="noreferrer">Open &amp; print form ↗</a>
+              <a className="button button--outline" href="/documents/membership-form-2026.pdf" download="Membership-Form-2026.pdf">Download PDF ↓</a>
+            </div>
+            <p>2026 Membership Application · One-page PDF. Open the form, then choose Print in your browser or PDF viewer.</p>
+            <p><strong>Mail your completed membership form and payment to:</strong></p>
             <p>
               Iosco County Historical Society
               <br />
-              405 W Bay Street
+              405 West Bay Street
               <br />
               East Tawas, MI 48730
             </p>
           </div>
           <div>
             <p className="eyebrow">Request a form</p>
-            <h2>We’re happy to help</h2>
+            <h2>Don’t have a printer?</h2>
             <p>
-              Email the museum and we’ll send you a membership form or answer
-              questions.
+              Call or email the museum and we’ll mail a membership form to you.
+              Please give us your name and mailing address.
             </p>
-            <a className="text-link" href={`mailto:${museum.email}`}>
-              Email the museum <b>→</b>
-            </a>
+            <div className="button-row">
+              <a className="button" href="tel:9893628911">Call {museum.phone}</a>
+              <a className="button button--outline" href={`mailto:${museum.email}?subject=Please%20mail%20me%20a%20membership%20form`}>Email the museum</a>
+            </div>
+            <p><a href={`mailto:${museum.email}`}>{museum.email}</a></p>
           </div>
         </div>
       </section>
