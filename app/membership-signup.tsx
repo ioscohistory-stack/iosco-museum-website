@@ -6,11 +6,13 @@ import { PayPalMembershipButton } from "./paypal-membership";
 type Level = { name: string; price: string; subtitle: string; benefits: string[] };
 export function MembershipSignup({ levels }: { levels: Level[] }) {
   const [selected, setSelected] = useState(0);
+  const [selectionVersion, setSelectionVersion] = useState(0);
   const [gift, setGift] = useState("");
   const level = levels[selected];
   const amount = level.price.startsWith("$") ? level.price.slice(1) : gift;
   function choose(index: number) {
     setSelected(index);
+    setSelectionVersion(version => version + 1);
     document.getElementById("membership-checkout")?.scrollIntoView({ block: "start" });
   }
   return <>
@@ -20,7 +22,7 @@ export function MembershipSignup({ levels }: { levels: Level[] }) {
         <p className="eyebrow">{item.subtitle}</p><h2>{item.name}</h2>
         <p className="membership-price">{item.price}</p>
         <ul>{item.benefits.map(benefit => <li key={benefit}>{benefit}</li>)}</ul>
-        <button type="button" className="text-link membership-choice" onClick={() => choose(index)}>
+        <button type="button" className="text-link membership-choice" aria-pressed={selected === index} onClick={() => choose(index)}>
           Choose {item.name} and pay online <b>↓</b>
         </button>
       </article>)}
@@ -39,7 +41,7 @@ export function MembershipSignup({ levels }: { levels: Level[] }) {
           <input id="member-amount" type="number" min="1" max="100000" step="0.01" required value={gift} onChange={event=>setGift(event.target.value)} />
         </div>}
         <p className="membership-payment__instruction">Check the amount, then select <strong>Checkout</strong> below to pay by card.</p>
-        <PayPalMembershipButton amount={amount} membershipType={level.name} />
+        <PayPalMembershipButton amount={amount} membershipType={level.name} selectionVersion={selectionVersion} />
         <details className="membership-checkout-help"><summary>Payment form not showing?</summary>
           <a className="paypal-fallback-link" href="https://www.paypal.com/ncp/payment/YQSQJPLMMF6BL" target="_blank" rel="noreferrer">Open secure membership checkout ↗</a>
           <p className="payment-help">Enter {level.name} and {amount ? `$${Number(amount).toFixed(2)}` : "your contribution amount"} in the separate checkout.</p>

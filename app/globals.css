@@ -1371,6 +1371,20 @@ p {
   background: var(--paper);
   border-top: 4px solid var(--brick);
   padding: 34px;
+  position: relative;
+}
+
+/* The visible Choose button also makes the name, price, and card selectable. */
+.membership-choice::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.membership-card:has(.membership-choice:focus-visible) {
+  outline: 3px solid var(--forest);
+  outline-offset: 4px;
 }
 
 .membership-card h2 {
