@@ -272,7 +272,45 @@ function HistoryPage() {
       image="/images/history-original/a-history-of-iosco-county.jpg"
     >
       <section className="container interior-section">
-        <div className="prose-intro">
+        <section className="history-featured" aria-labelledby="featured-stories-title">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Stories from the archive</p>
+              <h2 id="featured-stories-title">Featured stories</h2>
+            </div>
+            <a className="text-link" href="#community-histories">Browse all communities <b>↓</b></a>
+          </div>
+          <div className="editorial-grid">
+            <Link
+              className="editorial-card editorial-card--large"
+              href="/a-history-of-iosco-county"
+            >
+              <img src="/images/history-hero.jpg" alt="" />
+              <div>
+                <p className="eyebrow eyebrow--light">County story</p>
+                <h3>From white pine to water and light</h3>
+                <span>Read the story →</span>
+              </div>
+            </Link>
+            <Link className="editorial-card" href="/alabaster-township">
+              <img src="/images/gypsum-quarry.jpg" alt="" />
+              <div>
+                <p className="eyebrow eyebrow--light">Industry</p>
+                <h3>The gypsum town of Alabaster</h3>
+                <span>Read the story →</span>
+              </div>
+            </Link>
+            <Link className="editorial-card" href="/oscoda-township">
+              <img src="/images/wurtsmith.jpg" alt="" />
+              <div>
+                <p className="eyebrow eyebrow--light">Oscoda</p>
+                <h3>Wurtsmith and a county at war</h3>
+                <span>Read the story →</span>
+              </div>
+            </Link>
+          </div>
+        </section>
+        <div className="prose-intro" id="community-histories">
           <p className="eyebrow">15 communities. Countless stories.</p>
           <h2>Find the history closest to home.</h2>
           <p>

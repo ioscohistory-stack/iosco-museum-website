@@ -551,6 +551,18 @@ p {
   margin-bottom: 45px;
 }
 
+.history-featured {
+  margin-bottom: 72px;
+}
+
+.history-featured .section-heading {
+  gap: 24px;
+}
+
+#community-histories {
+  scroll-margin-top: 24px;
+}
+
 .editorial-grid {
   display: grid;
   gap: 20px;

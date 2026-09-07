@@ -20,7 +20,7 @@ export default function Home() {
                   Plan your visit
                 </Link>
                 <Link className="button button--outline-light" href="/history">
-                  Explore local history
+                  Explore History
                 </Link>
               </div>
             </div>
@@ -110,49 +110,6 @@ export default function Home() {
               </ul>
               <Link className="button button--forest" href="/visit">
                 Plan your visit
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="section featured-history">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Stories from the archive</p>
-                <h2>Every community has a chapter.</h2>
-              </div>
-              <Link className="text-link" href="/history">
-                Explore all local histories <b>→</b>
-              </Link>
-            </div>
-            <div className="editorial-grid">
-              <Link
-                className="editorial-card editorial-card--large"
-                href="/a-history-of-iosco-county"
-              >
-                <img src="/images/history-hero.jpg" alt="" />
-                <div>
-                  <p className="eyebrow eyebrow--light">County story</p>
-                  <h3>From white pine to water and light</h3>
-                  <span>Read the story →</span>
-                </div>
-              </Link>
-              <Link className="editorial-card" href="/alabaster-township">
-                <img src="/images/gypsum-quarry.jpg" alt="" />
-                <div>
-                  <p className="eyebrow eyebrow--light">Industry</p>
-                  <h3>The gypsum town of Alabaster</h3>
-                  <span>Read the story →</span>
-                </div>
-              </Link>
-              <Link className="editorial-card" href="/oscoda-township">
-                <img src="/images/wurtsmith.jpg" alt="" />
-                <div>
-                  <p className="eyebrow eyebrow--light">Oscoda</p>
-                  <h3>Wurtsmith and a county at war</h3>
-                  <span>Read the story →</span>
-                </div>
               </Link>
             </div>
           </div>
