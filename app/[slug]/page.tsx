@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import legacyContent from "../legacy-content.json";
 import { restoredLegacyBlocks } from "../legacy-restored-content";
+import { readableArticleBlocks } from "../readable-articles";
 import {
   Breadcrumb,
   Footer,
@@ -30,7 +31,7 @@ type LegacyPage = {
 
 const legacyPages = (legacyContent as LegacyPage[]).map((page) => ({
   ...page,
-  blocks: restoredLegacyBlocks[page.slug] ?? page.blocks,
+  blocks: readableArticleBlocks[page.slug] ?? restoredLegacyBlocks[page.slug] ?? page.blocks,
 }));
 
 const sponsorEmblems = [
@@ -294,7 +295,7 @@ function CollectionsPage() {
       description="Explore Iosco County photographs, glass negatives, newspapers, newsletters, documents, and recorded local-history programs."
       image="/images/collections-original/digital-preservation.jpg"
     >
-      <section className="container interior-section">
+      <section className="container interior-section collections-content">
         <div className="collections-explainer">
           <div>
             <p className="eyebrow">What is on this page?</p>
@@ -1312,6 +1313,29 @@ function VolunteersPage() {
   );
 }
 
+function ContactPage() {
+  return <PageShell eyebrow="Get in touch" title="Contact the museum"
+    description="We’re happy to help with visits, memberships, local-history research, and museum services."
+    image={imageForSlug["contact"] ?? "/images/museum-visit-2.jpg"}>
+    <section className="container interior-section contact-page">
+      <div className="contact-actions">
+        <article><h2>Call the museum</h2><p>{museum.phone}</p>
+          <a className="button button--forest" href={`tel:${museum.phone.replaceAll("-", "")}`}>Call {museum.phone}</a>
+        </article>
+        <article><h2>Email the museum</h2><p>{museum.email}</p>
+          <a className="button button--brick" href={`mailto:${museum.email}`}>Email the museum</a>
+        </article>
+      </div>
+      <section className="contact-visit"><h2>Visit us</h2>
+        <p>Iosco County Historical Society<br />405 West Bay Street<br />East Tawas, MI 48730</p>
+        <p>{museum.hours}</p>
+        <div className="button-row"><a className="button button--outline" href="https://maps.google.com/?q=405+West+Bay+Street+East+Tawas+MI+48730" target="_blank" rel="noreferrer">Get directions ↗</a>
+          <Link className="text-link" href="/visit">Plan your visit →</Link></div>
+      </section>
+    </section>
+  </PageShell>;
+}
+
 function LegacyPageView({ page }: { page: LegacyPage }) {
   const image = imageForSlug[page.slug] ?? "/images/museum-visit-2.jpg";
   const isCommunity =
@@ -1345,6 +1369,7 @@ export default async function DynamicPage({
 }) {
   const { slug } = await params;
   if (slug === "visit") return <VisitPage />;
+  if (slug === "contact") return <ContactPage />;
   if (slug === "history") return <HistoryPage />;
   if (slug === "collections") return <CollectionsPage />;
   if (slug === "digital-preservation-project")

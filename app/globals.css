@@ -1008,7 +1008,7 @@ p {
   align-items: center;
   display: grid;
   gap: 75px;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   margin-top: 80px;
 }
 
@@ -1105,7 +1105,7 @@ p {
   align-items: start;
   display: flex;
   justify-content: center;
-  min-height: 480px;
+  min-height: 0;
   position: relative;
 }
 
@@ -1118,7 +1118,9 @@ p {
   border: 12px solid var(--paper);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
   max-height: 430px;
-  width: auto;
+  width: 52%;
+  max-width: 52%;
+  min-width: 0;
 }
 
 .collection-glass-images img:first-child {
@@ -1158,7 +1160,7 @@ p {
 .collection-resource-grid {
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .collection-resource-card {
@@ -2296,58 +2298,49 @@ a.sponsor-emblem:focus-visible {
   max-width: 620px;
 }
 
+.desktop-nav { gap: 16px; }
+.desktop-nav > a { white-space: nowrap; }
+.brand { flex-shrink: 0; }
+.site-header__inner { gap: 24px; }
+.collections-content .collection-feature > *,
+.collections-content .collection-resource-grid > *,
+.collections-content .collections-help > * { min-width: 0; }
+.collections-content .button { white-space: normal; text-align: center; }
+.collections-content .collection-link-list a { gap: 12px; overflow-wrap: anywhere; }
+.collections-content .collection-image-title { overflow-wrap: anywhere; }
+.history-return { margin: 0 0 28px; }
+.legacy-article > .history-return:last-child { margin: 32px 0 0; }
+.contact-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.contact-actions article { padding: 32px; background: var(--paper); border-top: 4px solid var(--brick); min-width: 0; }
+.contact-actions h2, .contact-visit h2 { font-size: 2rem; margin-bottom: 12px; }
+.contact-actions p { margin-bottom: 24px; overflow-wrap: anywhere; }
+.contact-actions .button { white-space: normal; text-align: center; }
+.contact-visit { margin-top: 48px; }
+.contact-visit p { margin-bottom: 20px; }
+.contact-visit .button-row { align-items: center; }
+#membership-checkout { scroll-margin-top: 12px; min-width: 0; }
+.membership-payment__selection { font-family: var(--serif); font-size: 1.35rem; margin: 0 0 8px; line-height: 1.25; }
+.membership-payment__instruction { font-size: 1rem; margin: 0 0 16px; }
+.membership-payment textarea { height: 60px !important; min-height: 60px !important; }
+.benefactor-amount { margin-bottom: 16px; }
+.membership-checkout-help { margin-top: 20px; font-size: .875rem; }
+.membership-checkout-help summary { cursor: pointer; padding: 8px 0; }
+
+@media (max-width: 1180px) {
+  .desktop-nav { display: none; }
+  .mobile-nav { display: block; position: relative; }
+  .mobile-nav summary { cursor: pointer; display: flex; align-items: center; gap: 10px; list-style: none; padding: 12px 0 12px 12px; }
+  .mobile-nav summary::-webkit-details-marker { display: none; }
+  .mobile-nav summary b { font-size: .875rem; }
+  .mobile-nav__icon { display: flex; flex-direction: column; gap: 5px; }
+  .mobile-nav__icon i { background: var(--forest); display: block; height: 2px; width: 25px; }
+  .mobile-nav nav { background: var(--cream); border: 1px solid var(--line); box-shadow: 0 14px 30px rgba(0,0,0,.14); display: flex; flex-direction: column; width: min(280px, calc(100vw - 40px)); padding: 12px; position: absolute; right: 0; top: 48px; max-height: calc(100dvh - 130px); overflow-y: auto; }
+  .mobile-nav nav a { border-bottom: 1px solid var(--line); font-size: 1rem; font-weight: 700; padding: 12px 8px; }
+}
+
 @media (max-width: 980px) {
   .sponsor-emblem-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .mobile-nav {
-    display: block;
-    position: relative;
-  }
-
-  .mobile-nav summary {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    list-style: none;
-    padding: 12px;
-  }
-
-  .mobile-nav summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .mobile-nav summary span {
-    background: var(--forest);
-    display: block;
-    height: 2px;
-    width: 25px;
-  }
-
-  .mobile-nav nav {
-    background: var(--cream);
-    border: 1px solid var(--line);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
-    display: flex;
-    flex-direction: column;
-    min-width: 235px;
-    padding: 12px;
-    position: absolute;
-    right: 0;
-    top: 48px;
-  }
-
-  .mobile-nav nav a {
-    border-bottom: 1px solid var(--line);
-    font-size: 0.82rem;
-    font-weight: 700;
-    padding: 11px 8px;
   }
 
   .home-hero__grid {
@@ -2599,12 +2592,29 @@ a.sponsor-emblem:focus-visible {
   }
 
   .collection-glass-images {
-    min-height: 360px;
+    min-height: 0;
+    gap: 8px;
+    padding-bottom: 20px;
   }
 
   .collection-glass-images img {
     max-height: 320px;
+    max-width: calc(50% - 4px);
+    width: calc(50% - 4px);
+    height: auto;
+    min-width: 0;
+    border-width: 6px;
   }
+  .collection-glass-images img:first-child,
+  .collection-glass-images img:last-child { transform: none; margin: 0; }
+  .collections-content .collection-feature,
+  .collections-content .collection-resource-grid,
+  .collections-content .collections-help { grid-template-columns: minmax(0, 1fr); }
+  .collections-content .collection-feature__image { padding: 12px; }
+  .collections-content .collection-resource-card { padding: 26px 20px; }
+  .collections-content .collection-resource-card--image { padding: 0; }
+  .contact-actions { grid-template-columns: minmax(0, 1fr); }
+  .contact-actions article { padding: 26px 20px; }
 
   .collection-image-title {
     align-items: flex-start;
@@ -2706,6 +2716,10 @@ a.sponsor-emblem:focus-visible {
   .join-online__payment {
     padding: 20px 14px;
   }
+  .membership-payment { gap: 24px; padding: 16px; }
+  .membership-payment .join-online__payment { order: -1; }
+  .membership-payment .join-online__copy h2 { font-size: 1.75rem; margin: 8px 0; }
+  .membership-payment .secure-note { margin-top: 12px; }
 
   .participation-card {
     display: block;
@@ -2731,6 +2745,9 @@ a.sponsor-emblem:focus-visible {
 }
 
 @media (max-width: 420px) {
+  .site-header__inner { gap: 8px; }
+  .brand { gap: 8px; }
+  .mobile-nav summary { gap: 6px; padding-left: 4px; }
   .home-hero h1,
   .interior-hero__content h1 {
     font-size: 3rem;
