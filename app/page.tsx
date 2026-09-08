@@ -90,9 +90,10 @@ export default function Home() {
           <div className="container feature-grid">
             <div className="feature-grid__image paper-photo">
               <img
-                className="museum-photo museum-photo--building"
-                src="/images/iosco-museum-main.svg"
-                alt="Front of the Iosco County Historical Museum"
+                className="museum-photo"
+                src="/images/lg-mckay-residence-don-darr.jpg"
+                alt="Painting of the L. G. McKay residence by Don Darr"
+                style={{ objectFit: "contain", objectPosition: "center" }}
               />
             </div>
             <div className="feature-grid__copy">
