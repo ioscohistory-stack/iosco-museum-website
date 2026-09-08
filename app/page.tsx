@@ -129,14 +129,14 @@ export default function Home() {
               </Link>
             </div>
             <div className="collection-stack">
-              <img src="/images/logging-crew.jpg" alt="Historic logging crew" />
+              <img src="/images/holland-hotel.png" alt="Historic Holland Hotel" />
               <img
-                src="/images/rail-roundhouse.jpg"
-                alt="Historic railroad roundhouse"
+                src="/images/dm-locomotive-no-9.png"
+                alt="D&M locomotive No. 9"
               />
               <img
-                src="/images/county-building.jpg"
-                alt="Historic Iosco County building"
+                src="/images/welcome-hotel.png"
+                alt="Historic Welcome Hotel"
               />
             </div>
           </div>
