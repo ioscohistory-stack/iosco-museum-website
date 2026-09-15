@@ -65,7 +65,7 @@ export const quizQuestions = [
   {
     id: "original-county-name", topic: "Our county’s beginnings",
     question: "What was Iosco County’s original name?",
-    options: ["Kanotin County", "Alcona County", "Arenac County", "Oscoda County"], correct: 0,
+    options: ["Negwegon County", "Kanotin County", "Shawono County", "Cheonoquet County"], correct: 1,
     explanation: "The county was originally named Kanotin in 1840, sometimes written as Ka-no-tin. Its name changed to Iosco in 1843.",
     source: { title: "Library of Michigan: Iosco County history", url: "https://www.michigan.gov/libraryofmichigan/public/michigan/county-guides/guides/iosco" },
   },
