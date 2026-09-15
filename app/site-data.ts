@@ -244,6 +244,7 @@ export const footerGroups = [
     title: "Explore",
     links: [
       ["Local history", "/history"],
+      ["History quiz", "/history-quiz"],
       ["Collections", "/collections"],
       ["Digital archive", "/digital-preservation-project"],
       ["Videos", "/videos"],
@@ -304,6 +305,7 @@ export const siteDirectoryGroups = [
     title: "Iosco County history",
     links: [
       ["History overview", "/history"],
+      ["Iosco County history quiz", "/history-quiz"],
       ["A History of Iosco County", "/a-history-of-iosco-county"],
       ...historyLinks
         .filter((item) => item.slug !== "a-history-of-iosco-county")

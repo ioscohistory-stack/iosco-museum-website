@@ -82,6 +82,7 @@ export default function Home() {
               <Link className="text-link" href="/about-us">
                 Our story <b>→</b>
               </Link>
+              <p style={{ marginTop: "20px" }}><Link className="text-link" href="/history-quiz">How well do you know Iosco County? Take the quiz →</Link></p>
             </div>
           </div>
         </section>

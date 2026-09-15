@@ -1,0 +1,50 @@
+.quiz-page { background: var(--paper); padding: 44px 0 76px; }
+.quiz-page__inner { max-width: 930px; }
+.quiz-page__intro { align-items: center; display: flex; gap: 28px; margin-bottom: 30px; }
+.quiz-page__intro h1 { font-size: clamp(2rem, 4.4vw, 3rem); margin: 10px 0 14px; }
+.quiz-page__intro > div { flex: 1; }
+.quiz-page__intro img { border: 8px solid var(--cream); flex: none; height: 150px; object-fit: cover; width: 180px; transform: rotate(2deg); }
+.quiz-page .eyebrow { font-size: .875rem; letter-spacing: .1em; }
+.history-quiz { background: var(--cream); border-top: 5px solid var(--forest); padding: clamp(22px, 4vw, 42px); }
+.history-quiz__progress-label { display: flex; gap: 12px; justify-content: space-between; font-size: .875rem; font-weight: 700; }
+.history-quiz__progress { appearance: none; background: var(--paper-dark); border: 0; border-radius: 0; display: block; height: 5px; margin: 12px 0 26px; width: 100%; }
+.history-quiz__progress::-webkit-progress-bar { background: var(--paper-dark); }
+.history-quiz__progress::-webkit-progress-value { background: var(--forest); }
+.history-quiz__progress::-moz-progress-bar { background: var(--forest); }
+.history-quiz h2 { font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.25; margin: 8px 0 24px; }
+.history-quiz__options { border: 0; display: grid; gap: 10px; margin: 0 0 24px; min-width: 0; padding: 0; }
+.history-quiz__option { align-items: center; background: #fffdfa; border: 1px solid var(--line); cursor: pointer; display: grid; font-size: 1rem; gap: 12px; grid-template-columns: 18px 24px minmax(0, 1fr); padding: 14px 16px; }
+.history-quiz__option input { accent-color: var(--forest); height: 18px; margin: 0; width: 18px; }
+.history-quiz__letter { color: var(--muted); font-size: .875rem; font-weight: 700; }
+.history-quiz__option:hover, .history-quiz__option.is-selected { border-color: var(--forest); }
+.history-quiz__option:focus-within { outline: 3px solid var(--forest); outline-offset: 2px; }
+.history-quiz__options:disabled .history-quiz__option { cursor: default; }
+.history-quiz__option.is-correct { background: #edf4ee; border-color: var(--forest); }
+.history-quiz__option.is-incorrect { background: #fbede8; border-color: var(--brick); }
+.history-quiz__answer-label { font-size: .875rem; grid-column: 3; }
+.history-quiz__feedback { border-left: 3px solid var(--gold); margin: 0 0 26px; padding: 4px 0 4px 20px; }
+.history-quiz h3 { font-size: 1.35rem; line-height: 1.3; margin-bottom: 10px; }
+.history-quiz__feedback p { margin-bottom: 10px; }
+.history-quiz__feedback a, .history-quiz__review a { font-size: .875rem; text-decoration: underline; text-underline-offset: 3px; }
+.history-quiz .button { cursor: pointer; font-size: .9rem; }
+.history-quiz .button:disabled { cursor: not-allowed; opacity: .5; }
+.history-quiz button:focus-visible, .history-quiz a:focus-visible, .history-quiz summary:focus-visible, .history-quiz h2:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.history-quiz__result > h2 { color: var(--forest); font-size: 4rem; margin-bottom: 14px; }
+.history-quiz__result > p { max-width: 60ch; }
+.history-quiz__result .button-row { margin-top: 24px; }
+.history-quiz__copy-status { font-size: .875rem; margin-top: 12px; overflow-wrap: anywhere; }
+.history-quiz__review { border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); margin-top: 26px; padding: 18px 0; }
+.history-quiz__review summary { cursor: pointer; font-weight: 700; }
+.history-quiz__review ol { padding-left: 24px; }
+.history-quiz__review li { margin: 26px 0; padding-left: 5px; }
+.history-quiz__review li p { margin: 6px 0; }
+.history-quiz__explore { margin-top: 28px; }
+.history-quiz__explore p { margin-bottom: 10px; }
+@media (max-width: 600px) {
+  .quiz-page { padding-top: 28px; }
+  .quiz-page__intro { gap: 16px; }
+  .quiz-page__intro img { display: none; }
+  .history-quiz__option { column-gap: 8px; padding: 14px 10px; }
+  .history-quiz__result > h2 { font-size: 3rem; }
+  .history-quiz .button-row { align-items: stretch; flex-direction: column; }
+}
