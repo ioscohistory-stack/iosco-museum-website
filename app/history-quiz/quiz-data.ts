@@ -63,11 +63,11 @@ export const quizQuestions = [
     source: { title: "The museum’s Whittemore history", url: "/city-of-whittemore" },
   },
   {
-    id: "museum-gift", topic: "A home for history",
-    question: "In 1977, who purchased the house and donated it to the Historical Society for use as a museum?",
-    options: ["Iosco County", "The US Forest Service", "The US Coast Guard", "The State of Wisconsin"], correct: 0,
-    explanation: "Iosco County purchased the house from Ladd McKay in 1977 and donated it to the Society. Help from the Tawas Area Kiwanis supported a grant to purchase the property.",
-    source: { title: "The museum’s story", url: "/about-us" },
+    id: "original-county-name", topic: "Our county’s beginnings",
+    question: "What was Iosco County’s original name?",
+    options: ["Kanotin County", "Alcona County", "Arenac County", "Oscoda County"], correct: 0,
+    explanation: "The county was originally named Kanotin in 1840, sometimes written as Ka-no-tin. Its name changed to Iosco in 1843.",
+    source: { title: "Library of Michigan: Iosco County history", url: "https://www.michigan.gov/libraryofmichigan/public/michigan/county-guides/guides/iosco" },
   },
 ] as const;
 
@@ -97,3 +97,4 @@ export function quizReducer(state: QuizState, action: QuizAction): QuizState {
 export function quizScore(answers: number[]) {
   return answers.reduce((score, answer, index) => score + Number(quizQuestions[index]?.correct === answer), 0);
 }
+
