@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1789432297074,
+      "tag": "0000_museum_visitor_tracking",
+      "breakpoints": true
+    }
+  ]
+}
