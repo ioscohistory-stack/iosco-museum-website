@@ -34,6 +34,41 @@ export const quizQuestions = [
     explanation: "The Society was founded on December 10, 1967, with representatives from across the county. Establishing a county historical museum was one of its first goals.",
     source: { title: "About the Historical Society", url: "/about-us" },
   },
+  {
+    id: "hale-store", topic: "Hale",
+    question: "N. F. Dean helped establish Hale in 1889 by building what?",
+    options: ["A lighthouse", "An airport", "A store", "A courthouse"], correct: 2,
+    explanation: "Plainfield Township’s history dates Hale’s beginnings to the construction of N. F. Dean’s store in 1889. Farming and lumbering drew early settlers to the area.",
+    source: { title: "Plainfield Township Master Plan: history, page 3 (PDF)", url: "https://plainfieldtwpmi.com/wp-content/uploads/MP-final-11.30.23-compressed.pdf" },
+  },
+  {
+    id: "white-pine", topic: "River journeys",
+    question: "The Au Sable River’s lumber boom is especially associated with which tree?",
+    options: ["White pine", "Sugar maple", "American beech", "Black cherry"], correct: 0,
+    explanation: "The Au Sable River served as a transportation route for Michigan’s giant white pine logs. The river carried them toward the sawmills on Lake Huron.",
+    source: { title: "US Forest Service: Huron Adventure Planner, page 8 (PDF)", url: "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3807291.pdf?pdf=Huron-Adventure-Planner" },
+  },
+  {
+    id: "wurtsmith", topic: "Oscoda",
+    question: "In which year did Wurtsmith Air Force Base in Oscoda officially close?",
+    options: ["1945", "1967", "1981", "1993"], correct: 3,
+    explanation: "Wurtsmith officially closed on June 30, 1993. Established in 1923, the base was part of Oscoda’s history for 70 years.",
+    source: { title: "State of Michigan: former Wurtsmith Air Force Base", url: "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/iosco-county/wurtsmith" },
+  },
+  {
+    id: "whittemore-roll-inn", topic: "Whittemore",
+    question: "The Whittemore building later known as the Roll-Inn began in 1907 as what?",
+    options: ["A railroad station", "A livery barn and community hall", "A schoolhouse", "A grain elevator"], correct: 1,
+    explanation: "Schroyer and Wismer’s livery barn and community hall became the Roll-Inn. It later hosted roller skating, dances, basketball, and other community activities before a fire destroyed it in 1963.",
+    source: { title: "The museum’s Whittemore history", url: "/city-of-whittemore" },
+  },
+  {
+    id: "museum-gift", topic: "A home for history",
+    question: "In 1977, who purchased the house and donated it to the Historical Society for use as a museum?",
+    options: ["Iosco County", "The US Forest Service", "The US Coast Guard", "The State of Wisconsin"], correct: 0,
+    explanation: "Iosco County purchased the house from Ladd McKay in 1977 and donated it to the Society. Help from the Tawas Area Kiwanis supported a grant to purchase the property.",
+    source: { title: "The museum’s story", url: "/about-us" },
+  },
 ] as const;
 
 export type QuizState = { index: number; selected: number | null; answers: number[]; revealed: boolean; finished: boolean };

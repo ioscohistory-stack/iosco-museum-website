@@ -7,6 +7,7 @@ import { initialQuizState, quizQuestions, quizReducer, quizScore } from "./quiz-
 export function HistoryQuiz() {
   const [state, dispatch] = useReducer(quizReducer, initialQuizState);
   const [copyMessage, setCopyMessage] = useState("");
+  const [participantName, setParticipantName] = useState("");
   const heading = useRef<HTMLHeadingElement>(null);
   const mounted = useRef(false);
   const question = quizQuestions[state.index];
@@ -28,13 +29,18 @@ export function HistoryQuiz() {
 
   return (
     <section className="history-quiz" aria-label="Iosco County history quiz">
+      {!state.finished && state.index === 0 && <div className="history-quiz__name">
+        <label htmlFor="quiz-participant-name">Your name <span>(optional)</span></label>
+        <input id="quiz-participant-name" name="participantName" type="text" autoComplete="name" maxLength={80} value={participantName} onChange={(event) => setParticipantName(event.target.value)} aria-describedby="quiz-name-help" />
+        <p id="quiz-name-help">Leave blank to play anonymously. Your name is only shown with your score on this screen.</p>
+      </div>}
       <div className="history-quiz__progress-label"><span>{state.finished ? "Quiz complete" : `Question ${state.index + 1} of ${quizQuestions.length}`}</span><span>{score} correct</span></div>
       <progress className="history-quiz__progress" value={state.answers.length} max={quizQuestions.length} aria-label="Questions answered" />
       {state.finished ? (
         <div className="history-quiz__result">
-          <p className="eyebrow">Your result</p>
+          <p className="eyebrow history-quiz__result-name">{participantName.trim() ? `Results for ${participantName.trim()}` : "Your result"}</p>
           <h2 ref={heading} tabIndex={-1}>{score} out of {quizQuestions.length}</h2>
-          <p>{score === 5 ? "You know your Iosco history!" : score >= 3 ? "You know quite a bit about Iosco County." : "There’s always another piece of local history to discover."} Thanks for exploring it with us.</p>
+          <p>{score === quizQuestions.length ? "You know your Iosco history!" : score / quizQuestions.length >= 0.6 ? "You know quite a bit about Iosco County." : "There’s always another piece of local history to discover."} Thanks for exploring it with us.</p>
           <div className="button-row">
             <button className="button button--forest" onClick={() => { dispatch({ type: "restart" }); setCopyMessage(""); }}>Try again</button>
             <button className="button button--outline" onClick={copyQuizLink}>Copy quiz link</button>

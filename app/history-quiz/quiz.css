@@ -6,6 +6,13 @@
 .quiz-page__intro img { border: 8px solid var(--cream); flex: none; height: 150px; object-fit: cover; width: 180px; transform: rotate(2deg); }
 .quiz-page .eyebrow { font-size: .875rem; letter-spacing: .1em; }
 .history-quiz { background: var(--cream); border-top: 5px solid var(--forest); padding: clamp(22px, 4vw, 42px); }
+.history-quiz__name { border-bottom: 1px solid var(--line); margin-bottom: 24px; padding-bottom: 22px; }
+.history-quiz__name label { display: block; font-size: 1rem; font-weight: 700; margin-bottom: 7px; }
+.history-quiz__name label span { font-weight: 400; }
+.history-quiz__name input { background: #fffdfa; border: 1px solid var(--muted); border-radius: 0; color: var(--ink); display: block; font: inherit; max-width: 400px; min-height: 46px; padding: 9px 12px; width: 100%; }
+.history-quiz__name input:focus-visible { outline: 3px solid var(--forest); outline-offset: 2px; }
+.history-quiz__name p { font-size: .875rem; line-height: 1.5; margin-top: 7px; }
+.history-quiz__result-name { overflow-wrap: anywhere; }
 .history-quiz__progress-label { display: flex; gap: 12px; justify-content: space-between; font-size: .875rem; font-weight: 700; }
 .history-quiz__progress { appearance: none; background: var(--paper-dark); border: 0; border-radius: 0; display: block; height: 5px; margin: 12px 0 26px; width: 100%; }
 .history-quiz__progress::-webkit-progress-bar { background: var(--paper-dark); }
