@@ -1,0 +1,57 @@
+name: Generate Tawas Theatre Narration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  narration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install neural TTS
+        run: pip install edge-tts
+
+      - name: Generate narration
+        shell: bash
+        run: |
+          cat > narration.txt <<'EOF'
+          When the movies first learned to talk in Tawas City, this building on West Lake Street became one of the community's favorite gathering places.
+
+          The theatre opened around 1920 as the Auditorium. Over the years it became the State Theatre, the Rivoli Theatre, and finally the Bay Theatre.
+
+          In 1929, manager Douglas Ferguson brought the first talking motion pictures to the Tawas area. He reportedly spent about six thousand dollars installing new equipment and securing the rights to show Movietone productions. The new talkies packed the house, and Saturday night crowds became so large that Lake Street merchants even complained about the shortage of parking.
+
+          By 1931, improved sound-on-film equipment had been installed. The building continued showing movies until 1951. After the theatre closed, it became the first home of Immaculate Heart of Mary Church. The building was removed in 1971, and the old theatre site became a parking lot.
+
+          The Iosco County Historical Museum now displays this thirty-five millimeter theatrical projector, believed to have come from the theatre. And look at this old Rivoli program: Boris Karloff in Bride of Frankenstein, admission just fifteen cents.
+
+          Come see the projector in person at the Iosco County Historical Museum, and imagine the night Tawas first heard the movies talk.
+          EOF
+          python - <<'PY'
+          import asyncio
+          import edge_tts
+
+          async def main():
+              text = open('narration.txt', encoding='utf-8').read()
+              voice = 'en-US-ChristopherNeural'
+              tts = edge_tts.Communicate(text, voice, rate='-7%', pitch='-2Hz')
+              await tts.save('tawas_theatre_narration.mp3')
+
+          asyncio.run(main())
+          PY
+
+      - name: Upload narration
+        uses: actions/upload-artifact@v4
+        with:
+          name: tawas-theatre-narration
+          path: tawas_theatre_narration.mp3
+          retention-days: 1
